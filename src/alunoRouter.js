@@ -30,7 +30,10 @@ router.post('/', async (req, res) => { //cria e salva
 router.put('/:id', async (req, res) => { //atualiza
     let aluno = await Aluno.findByPk(req.params.id);
     if(aluno){
-        aluno.matricula = req.body.matricula;
+        aluno.nome = req.body.nome;
+        aluno.data_nascimento = req.body.data_nascimento;
+        aluno.email_institucional = req.body.email_institucional;
+        
         aluno = await aluno.save(aluno);
     }
     res.send(aluno);
